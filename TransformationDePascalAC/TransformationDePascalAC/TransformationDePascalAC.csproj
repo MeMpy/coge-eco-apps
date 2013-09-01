@@ -51,6 +51,12 @@
     <Compile Include="DefBDD2Form.Designer.cs">
       <DependentUpon>DefBDD2Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="EnsembleCodeGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnsembleCodeGenerator.Designer.cs">
+      <DependentUpon>EnsembleCodeGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="FileMatched.cs" />
     <Compile Include="TransformCode.cs">
       <SubType>Form</SubType>
@@ -64,6 +70,9 @@
     <Compile Include="TransformationPascalC.cs" />
     <EmbeddedResource Include="DefBDD2Form.resx">
       <DependentUpon>DefBDD2Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EnsembleCodeGenerator.resx">
+      <DependentUpon>EnsembleCodeGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransformCode.resx">
       <DependentUpon>TransformCode.cs</DependentUpon>
@@ -79,6 +88,7 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
+    <None Include="Properties\DataSources\EnsembleCoGe.Procedure.datasource" />
     <None Include="Properties\DataSources\FileMatched.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

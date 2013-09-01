@@ -141,15 +141,11 @@ namespace TransformationDePascalAC
         
         private void generatoreCodiceToolStripMenuItem_Click(object sender, EventArgs e)        
         {
-            string filePath =@"""C:\Users\Ross\Documents\Visual Studio 2012\files_for_tests\pkg\b_APP_GIR_QRY.sql""";
+            
+            this.Visible = false;
+            DialogResult res = new DefBDD2Form().ShowDialog();
 
-            string xml = ProceduresInvoker.InvokeCoGe(filePath).ToString();
-            List<Procedure> procs = ProceduresBuilder.BuildProceduresFromXml(xml);
-
-            //this.Visible = false;
-            //DialogResult res = new DefBDD2Form().ShowDialog();
-
-            //this.Visible = true;
+            this.Visible = true;
         }
 
         #endregion
@@ -163,6 +159,14 @@ namespace TransformationDePascalAC
         }
 
         #endregion
+
+        private void generatoreEnsemblesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            DialogResult diag = new EnsembleCodeGenerator().ShowDialog();
+
+            this.Visible = true;
+        }
 
 
 

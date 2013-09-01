@@ -54,6 +54,7 @@ namespace TransformationDePascalAC
             this.lbDest = new System.Windows.Forms.Label();
             this.txtDest = new System.Windows.Forms.TextBox();
             this.btnDest = new System.Windows.Forms.Button();
+            this.generatoreEnsemblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewFileMatched)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileMatchedBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -216,6 +217,7 @@ namespace TransformationDePascalAC
             // 
             this.operazioniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.generatoreCodiceToolStripMenuItem,
+            this.generatoreEnsemblesToolStripMenuItem,
             this.esciToolStripMenuItem});
             this.operazioniToolStripMenuItem.Name = "operazioniToolStripMenuItem";
             this.operazioniToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
@@ -224,14 +226,14 @@ namespace TransformationDePascalAC
             // generatoreCodiceToolStripMenuItem
             // 
             this.generatoreCodiceToolStripMenuItem.Name = "generatoreCodiceToolStripMenuItem";
-            this.generatoreCodiceToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.generatoreCodiceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.generatoreCodiceToolStripMenuItem.Text = "Generatore Codice";
             this.generatoreCodiceToolStripMenuItem.Click += new System.EventHandler(this.generatoreCodiceToolStripMenuItem_Click);
             // 
             // esciToolStripMenuItem
             // 
             this.esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            this.esciToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.esciToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.esciToolStripMenuItem.Text = "Esci";
             this.esciToolStripMenuItem.Click += new System.EventHandler(this.esciToolStripMenuItem_Click);
             // 
@@ -284,6 +286,13 @@ namespace TransformationDePascalAC
             this.btnDest.UseVisualStyleBackColor = true;
             this.btnDest.Click += new System.EventHandler(this.btnDest_Click);
             // 
+            // generatoreEnsemblesToolStripMenuItem
+            // 
+            this.generatoreEnsemblesToolStripMenuItem.Name = "generatoreEnsemblesToolStripMenuItem";
+            this.generatoreEnsemblesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.generatoreEnsemblesToolStripMenuItem.Text = "Generatore Ensembles";
+            this.generatoreEnsemblesToolStripMenuItem.Click += new System.EventHandler(this.generatoreEnsemblesToolStripMenuItem_Click);
+            // 
             // TransformCode
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +339,7 @@ namespace TransformationDePascalAC
         private System.Windows.Forms.Label lbDest;
         private System.Windows.Forms.TextBox txtDest;
         private System.Windows.Forms.Button btnDest;
+        private System.Windows.Forms.ToolStripMenuItem generatoreEnsemblesToolStripMenuItem;
     }
 }
 
