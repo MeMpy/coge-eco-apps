@@ -218,20 +218,20 @@ namespace TransformationDePascalAC
             this.generatoreCodiceToolStripMenuItem,
             this.esciToolStripMenuItem});
             this.operazioniToolStripMenuItem.Name = "operazioniToolStripMenuItem";
-            this.operazioniToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
+            this.operazioniToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.operazioniToolStripMenuItem.Text = "Operazioni";
             // 
             // generatoreCodiceToolStripMenuItem
             // 
             this.generatoreCodiceToolStripMenuItem.Name = "generatoreCodiceToolStripMenuItem";
-            this.generatoreCodiceToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.generatoreCodiceToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.generatoreCodiceToolStripMenuItem.Text = "Generatore Codice";
             this.generatoreCodiceToolStripMenuItem.Click += new System.EventHandler(this.generatoreCodiceToolStripMenuItem_Click);
             // 
             // esciToolStripMenuItem
             // 
             this.esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            this.esciToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.esciToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.esciToolStripMenuItem.Text = "Esci";
             this.esciToolStripMenuItem.Click += new System.EventHandler(this.esciToolStripMenuItem_Click);
             // 

@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TransformationDePascalAC</RootNamespace>
     <AssemblyName>TransformationDePascalAC</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -77,6 +78,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.config" />
     <None Include="Properties\DataSources\FileMatched.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,9 +95,17 @@
       <Project>{51023130-1FC7-4B16-880F-433DE35660D6}</Project>
       <Name>CodeTransformation</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CoGeBridge\CoGeBridge.csproj">
+      <Project>{c415c35f-52e8-474f-8f19-88b18363a256}</Project>
+      <Name>CoGeBridge</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DrawItems\DrawItems.csproj">
       <Project>{DEA6E780-2E0D-4553-BA31-63E6D1D2D719}</Project>
       <Name>DrawItems</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EnsembleCoGe\EnsembleCoGe.csproj">
+      <Project>{fdc38a77-07d7-45bf-814a-e32f3721010d}</Project>
+      <Name>EnsembleCoGe</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
