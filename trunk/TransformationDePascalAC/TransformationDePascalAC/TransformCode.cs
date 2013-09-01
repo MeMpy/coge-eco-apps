@@ -10,6 +10,8 @@ using System.IO;
 using System.Text.RegularExpressions;
 using TransformationDePascalAC.model;
 using CodeTransformation;
+using CoGeBridge;
+using EnsembleCoGe;
 
 namespace TransformationDePascalAC
 {
@@ -137,12 +139,17 @@ namespace TransformationDePascalAC
             this.Dispose();
         }
         
-        private void generatoreCodiceToolStripMenuItem_Click(object sender, EventArgs e)
+        private void generatoreCodiceToolStripMenuItem_Click(object sender, EventArgs e)        
         {
-            this.Visible = false;
-            DialogResult res = new DefBDD2Form().ShowDialog();
+            string filePath =@"""C:\Users\Ross\Documents\Visual Studio 2012\files_for_tests\pkg\b_APP_GIR_QRY.sql""";
 
-            this.Visible = true;
+            string xml = ProceduresInvoker.InvokeCoGe(filePath).ToString();
+            List<Procedure> procs = ProceduresBuilder.BuildProceduresFromXml(xml);
+
+            //this.Visible = false;
+            //DialogResult res = new DefBDD2Form().ShowDialog();
+
+            //this.Visible = true;
         }
 
         #endregion
