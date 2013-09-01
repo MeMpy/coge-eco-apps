@@ -30,9 +30,11 @@ namespace CoGeBridge
         }
 
 
-        protected void SetReaderArguments(params string[] args)
+        protected void SetReaderArguments(string filePath, params string[] args)
         {
             startInfo.Arguments += " -r ";
+            if(!string.IsNullOrEmpty(filePath))
+                startInfo.Arguments += "\"" + @filePath + "\"";
             foreach (var arg in args)
             {
                 startInfo.Arguments += arg + " ";
