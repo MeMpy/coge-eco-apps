@@ -10,7 +10,9 @@ namespace CoGeBridge
     public class CoGeInvoker
     {
 
-        private static readonly string cogeExe = Path.Combine(Directory.GetCurrentDirectory(), "coge_dist", "CoGe.exe");
+    	private static readonly string executeDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.
+    	                                                                            GetExecutingAssembly().Location);
+        private static readonly string cogeExeRelativ = Path.Combine("coge_dist", "CoGe.exe");
         
         ProcessStartInfo startInfo;
 
@@ -19,7 +21,7 @@ namespace CoGeBridge
         {
             // Use ProcessStartInfo class
             startInfo = new ProcessStartInfo();
-            startInfo.FileName = cogeExe;
+            startInfo.FileName = Path.Combine(executeDir, cogeExeRelativ);
             
 
         }
