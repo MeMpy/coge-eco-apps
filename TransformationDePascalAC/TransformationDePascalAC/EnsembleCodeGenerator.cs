@@ -49,15 +49,32 @@ namespace TransformationDePascalAC
 
         private void btnGenerate_Click(object sender, EventArgs e)
         {
-            //TODO Fare per bene
-            string fileGenerated = EnsembleECOInvoker.InvokeCoGe(txtScript.Text, txtService.Text) as string;
-
-            if (!string.IsNullOrEmpty(fileGenerated))
+            if (string.IsNullOrEmpty(txtService.Text))
             {
-                System.Diagnostics.Process.Start(@fileGenerated);
+                MessageBox.Show("Devi inserire anche il nome del servizio");
+                return;
+            }
+            string result = EnsembleECOInvoker.InvokeCoGe(txtScript.Text, txtService.Text, chkSaveFile.Checked) as string;
+
+            //TODO Fare per bene
+            if (chkSaveFile.Checked)
+            {
+                //In result ci sarà il nome del file in cui è stato salvato il codice
+                if (!string.IsNullOrEmpty(result))
+                {
+                    System.Diagnostics.Process.Start(result);
+                }
+            }
+            else
+            {
+                //in result ci sarà proprio il codice
+                if (!string.IsNullOrEmpty(result))
+                {
+                    txtCode.Text = result;
+                }
+
             }
             
-
         }
     }
 }

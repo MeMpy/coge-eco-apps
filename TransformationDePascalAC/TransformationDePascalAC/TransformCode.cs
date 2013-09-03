@@ -139,11 +139,20 @@ namespace TransformationDePascalAC
             this.Dispose();
         }
         
-        private void generatoreCodiceToolStripMenuItem_Click(object sender, EventArgs e)        
+        private void generatoreGuiToolStripMenuItem_Click(object sender, EventArgs e)        
         {
             
             this.Visible = false;
             DialogResult res = new DefBDD2Form().ShowDialog();
+
+            this.Visible = true;
+        }
+
+
+        private void generatoreEnsemblesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            DialogResult diag = new EnsembleCodeGenerator().ShowDialog();
 
             this.Visible = true;
         }
@@ -160,13 +169,8 @@ namespace TransformationDePascalAC
 
         #endregion
 
-        private void generatoreEnsemblesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            DialogResult diag = new EnsembleCodeGenerator().ShowDialog();
 
-            this.Visible = true;
-        }
+
 
 
 
