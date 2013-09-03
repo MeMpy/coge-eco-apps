@@ -48,13 +48,17 @@ namespace TransformationDePascalAC
             this.selectAllChkBox = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.operazioniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.generatoreCodiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.esciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generatoreDiCodiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generaGuiToolStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.generatoreEnsemblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnTrasformDefBDD = new System.Windows.Forms.Panel();
             this.lbDest = new System.Windows.Forms.Label();
             this.txtDest = new System.Windows.Forms.TextBox();
             this.btnDest = new System.Windows.Forms.Button();
-            this.generatoreEnsemblesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.convertiDefBDDSingoliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewCodesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generaCommentiSqlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.gridViewFileMatched)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileMatchedBindingSource)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -206,7 +210,8 @@ namespace TransformationDePascalAC
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.operazioniToolStripMenuItem});
+            this.operazioniToolStripMenuItem,
+            this.generatoreDiCodiceToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(452, 24);
@@ -216,26 +221,43 @@ namespace TransformationDePascalAC
             // operazioniToolStripMenuItem
             // 
             this.operazioniToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generatoreCodiceToolStripMenuItem,
-            this.generatoreEnsemblesToolStripMenuItem,
+            this.convertiDefBDDSingoliToolStripMenuItem,
+            this.viewCodesToolStripMenuItem,
             this.esciToolStripMenuItem});
             this.operazioniToolStripMenuItem.Name = "operazioniToolStripMenuItem";
             this.operazioniToolStripMenuItem.Size = new System.Drawing.Size(76, 20);
             this.operazioniToolStripMenuItem.Text = "Operazioni";
             // 
-            // generatoreCodiceToolStripMenuItem
-            // 
-            this.generatoreCodiceToolStripMenuItem.Name = "generatoreCodiceToolStripMenuItem";
-            this.generatoreCodiceToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.generatoreCodiceToolStripMenuItem.Text = "Generatore Codice";
-            this.generatoreCodiceToolStripMenuItem.Click += new System.EventHandler(this.generatoreCodiceToolStripMenuItem_Click);
-            // 
             // esciToolStripMenuItem
             // 
             this.esciToolStripMenuItem.Name = "esciToolStripMenuItem";
-            this.esciToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.esciToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.esciToolStripMenuItem.Text = "Esci";
             this.esciToolStripMenuItem.Click += new System.EventHandler(this.esciToolStripMenuItem_Click);
+            // 
+            // generatoreDiCodiceToolStripMenuItem
+            // 
+            this.generatoreDiCodiceToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generaGuiToolStrip,
+            this.generatoreEnsemblesToolStripMenuItem,
+            this.generaCommentiSqlToolStripMenuItem});
+            this.generatoreDiCodiceToolStripMenuItem.Name = "generatoreDiCodiceToolStripMenuItem";
+            this.generatoreDiCodiceToolStripMenuItem.Size = new System.Drawing.Size(128, 20);
+            this.generatoreDiCodiceToolStripMenuItem.Text = "Generatore di codice";
+            // 
+            // generaGuiToolStrip
+            // 
+            this.generaGuiToolStrip.Name = "generaGuiToolStrip";
+            this.generaGuiToolStrip.Size = new System.Drawing.Size(250, 22);
+            this.generaGuiToolStrip.Text = "Generatore Codice per Interfaccia";
+            this.generaGuiToolStrip.Click += new System.EventHandler(this.generatoreGuiToolStripMenuItem_Click);
+            // 
+            // generatoreEnsemblesToolStripMenuItem
+            // 
+            this.generatoreEnsemblesToolStripMenuItem.Name = "generatoreEnsemblesToolStripMenuItem";
+            this.generatoreEnsemblesToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.generatoreEnsemblesToolStripMenuItem.Text = "Generatore Ensembles";
+            this.generatoreEnsemblesToolStripMenuItem.Click += new System.EventHandler(this.generatoreEnsemblesToolStripMenuItem_Click);
             // 
             // pnTrasformDefBDD
             // 
@@ -286,12 +308,23 @@ namespace TransformationDePascalAC
             this.btnDest.UseVisualStyleBackColor = true;
             this.btnDest.Click += new System.EventHandler(this.btnDest_Click);
             // 
-            // generatoreEnsemblesToolStripMenuItem
+            // convertiDefBDDSingoliToolStripMenuItem
             // 
-            this.generatoreEnsemblesToolStripMenuItem.Name = "generatoreEnsemblesToolStripMenuItem";
-            this.generatoreEnsemblesToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.generatoreEnsemblesToolStripMenuItem.Text = "Generatore Ensembles";
-            this.generatoreEnsemblesToolStripMenuItem.Click += new System.EventHandler(this.generatoreEnsemblesToolStripMenuItem_Click);
+            this.convertiDefBDDSingoliToolStripMenuItem.Name = "convertiDefBDDSingoliToolStripMenuItem";
+            this.convertiDefBDDSingoliToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.convertiDefBDDSingoliToolStripMenuItem.Text = "Converti DefBDD Singoli";
+            // 
+            // viewCodesToolStripMenuItem
+            // 
+            this.viewCodesToolStripMenuItem.Name = "viewCodesToolStripMenuItem";
+            this.viewCodesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
+            this.viewCodesToolStripMenuItem.Text = "Visualizza Codici";
+            // 
+            // generaCommentiSqlToolStripMenuItem
+            // 
+            this.generaCommentiSqlToolStripMenuItem.Name = "generaCommentiSqlToolStripMenuItem";
+            this.generaCommentiSqlToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
+            this.generaCommentiSqlToolStripMenuItem.Text = "Genera Commenti Sql";
             // 
             // TransformCode
             // 
@@ -333,13 +366,17 @@ namespace TransformationDePascalAC
         private System.Windows.Forms.CheckBox selectAllChkBox;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem operazioniToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem generatoreCodiceToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem esciToolStripMenuItem;
         private System.Windows.Forms.Panel pnTrasformDefBDD;
         private System.Windows.Forms.Label lbDest;
         private System.Windows.Forms.TextBox txtDest;
         private System.Windows.Forms.Button btnDest;
+        private System.Windows.Forms.ToolStripMenuItem generatoreDiCodiceToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generaGuiToolStrip;
         private System.Windows.Forms.ToolStripMenuItem generatoreEnsemblesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem convertiDefBDDSingoliToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewCodesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generaCommentiSqlToolStripMenuItem;
     }
 }
 
