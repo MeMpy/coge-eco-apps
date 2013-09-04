@@ -17,16 +17,26 @@ namespace TransformationDePascalAC
 	/// </summary>
 	public partial class SqlCommentGenerator : Form
 	{
+		
+		string filePkg = null;
+		
 		public SqlCommentGenerator()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
-			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+		
+		}
+		
+		void BtnSelezionaPkgClick(object sender, EventArgs e)
+		{
+			filePkg = null;
+			if(opfPkg.ShowDialog()== DialogResult.OK)
+			{
+				filePkg = opfPkg.FileName;
+				txtPkg.Text = opfPkg.SafeFileName;
+			}
 		}
 	}
 }

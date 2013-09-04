@@ -58,6 +58,7 @@
       <DependentUpon>EnsembleCodeGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="FileMatched.cs" />
+    <Compile Include="SqlCommentDoIt.cs" />
     <Compile Include="SqlCommentGenerator.cs" />
     <Compile Include="SqlCommentGenerator.Designer.cs">
       <DependentUpon>SqlCommentGenerator.cs</DependentUpon>
@@ -81,6 +82,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EnsembleCodeGenerator.resx">
       <DependentUpon>EnsembleCodeGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SqlCommentGenerator.resx">
+      <DependentUpon>SqlCommentGenerator.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TransformCode.resx">
       <DependentUpon>TransformCode.cs</DependentUpon>
