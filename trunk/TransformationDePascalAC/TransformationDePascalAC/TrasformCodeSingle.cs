@@ -10,6 +10,8 @@ using System;
 using System.Drawing;
 using System.Windows.Forms;
 
+using CodeTransformation;
+
 namespace TransformationDePascalAC
 {
 	/// <summary>
@@ -17,6 +19,9 @@ namespace TransformationDePascalAC
 	/// </summary>
 	public partial class TrasformCodeSingle : Form
 	{
+		string fileCSharp = null;
+		string filePascal = null;
+		
 		public TrasformCodeSingle()
 		{
 			//
@@ -24,9 +29,72 @@ namespace TransformationDePascalAC
 			//
 			InitializeComponent();
 			
-			//
-			// TODO: Add constructor code after the InitializeComponent() call.
-			//
+
 		}
+		
+		void BtnSelezionaCSharpClick(object sender, EventArgs e)
+		{
+			fileCSharp = null;
+			if(opdCSharp.ShowDialog()== DialogResult.OK)
+			{
+				fileCSharp = opdCSharp.FileName;
+				txtCSharp.Text = opdCSharp.SafeFileName;
+			}
+			
+		}
+		
+		void BtnSelezionaPascalClick(object sender, EventArgs e)
+		{
+			filePascal = null;
+			if(opdPascal.ShowDialog()== DialogResult.OK)
+			{
+				filePascal = opdPascal.FileName;
+				txtPascal.Text = opdPascal.SafeFileName;
+			}
+			
+		}
+		
+		void BtnDestClick(object sender, EventArgs e)
+		{
+			string destPath = null;
+			if(fbdDest.ShowDialog()== DialogResult.OK)
+			{
+				destPath = opdCSharp.FileName;
+				txtDest.Text = destPath;
+			}
+		}
+		
+		void BtnConvertClick(object sender, EventArgs e)
+		{
+			 string destPath = string.IsNullOrEmpty(txtDest.Text)? null: txtDest.Text;			 
+			 
+			 object trasformed = null;
+			 
+			 if (fileCSharp != null && filePascal != null){
+			 	
+			 	trasformed = TransformationPascalC.doTransformation(filePascal, fileCSharp, destPath);
+			 	
+			 	if(trasformed!=null)
+			 	{
+			 		FileCode trasformedFile = trasformed as FileCode;
+			 		if(trasformedFile!=null)
+			 		{
+			 			txtResult.Text = string.Empty;
+			 			foreach (var element in trasformedFile.getItems()) {
+			 				txtResult.Text+=element.ToString() + System.Environment.NewLine;
+			 			}
+			 		}
+			 	}else
+			 	{
+			 		 MessageBox.Show("Nessuna trasformazione effettuata");	
+			 	}
+			 }
+			 
+			 
+			 
+			
+		}
+		
+		
 	}
 }

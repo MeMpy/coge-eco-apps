@@ -44,6 +44,12 @@ namespace TransformationDePascalAC
 			this.btnSelezionaPascal = new System.Windows.Forms.Button();
 			this.btnConvert = new System.Windows.Forms.Button();
 			this.txtResult = new System.Windows.Forms.TextBox();
+			this.opdCSharp = new System.Windows.Forms.OpenFileDialog();
+			this.opdPascal = new System.Windows.Forms.OpenFileDialog();
+			this.lbDest = new System.Windows.Forms.Label();
+			this.txtDest = new System.Windows.Forms.TextBox();
+			this.btnDest = new System.Windows.Forms.Button();
+			this.fbdDest = new System.Windows.Forms.FolderBrowserDialog();
 			this.SuspendLayout();
 			// 
 			// lbCsharp
@@ -62,7 +68,7 @@ namespace TransformationDePascalAC
 			this.txtCSharp.Location = new System.Drawing.Point(108, 27);
 			this.txtCSharp.Name = "txtCSharp";
 			this.txtCSharp.ReadOnly = true;
-			this.txtCSharp.Size = new System.Drawing.Size(226, 20);
+			this.txtCSharp.Size = new System.Drawing.Size(279, 20);
 			this.txtCSharp.TabIndex = 10;
 			// 
 			// btnSelezionaCSharp
@@ -73,6 +79,7 @@ namespace TransformationDePascalAC
 			this.btnSelezionaCSharp.TabIndex = 9;
 			this.btnSelezionaCSharp.Text = "Sfoglia";
 			this.btnSelezionaCSharp.UseVisualStyleBackColor = true;
+			this.btnSelezionaCSharp.Click += new System.EventHandler(this.BtnSelezionaCSharpClick);
 			// 
 			// label1
 			// 
@@ -90,7 +97,7 @@ namespace TransformationDePascalAC
 			this.txtPascal.Location = new System.Drawing.Point(108, 86);
 			this.txtPascal.Name = "txtPascal";
 			this.txtPascal.ReadOnly = true;
-			this.txtPascal.Size = new System.Drawing.Size(226, 20);
+			this.txtPascal.Size = new System.Drawing.Size(279, 20);
 			this.txtPascal.TabIndex = 13;
 			// 
 			// btnSelezionaPascal
@@ -101,30 +108,73 @@ namespace TransformationDePascalAC
 			this.btnSelezionaPascal.TabIndex = 12;
 			this.btnSelezionaPascal.Text = "Sfoglia";
 			this.btnSelezionaPascal.UseVisualStyleBackColor = true;
+			this.btnSelezionaPascal.Click += new System.EventHandler(this.BtnSelezionaPascalClick);
 			// 
 			// btnConvert
 			// 
-			this.btnConvert.Location = new System.Drawing.Point(108, 126);
+			this.btnConvert.Location = new System.Drawing.Point(142, 174);
 			this.btnConvert.Name = "btnConvert";
 			this.btnConvert.Size = new System.Drawing.Size(94, 36);
 			this.btnConvert.TabIndex = 15;
 			this.btnConvert.Text = "Converti";
 			this.btnConvert.UseVisualStyleBackColor = true;
+			this.btnConvert.Click += new System.EventHandler(this.BtnConvertClick);
 			// 
 			// txtResult
 			// 
-			this.txtResult.Location = new System.Drawing.Point(12, 173);
+			this.txtResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+									| System.Windows.Forms.AnchorStyles.Right)));
+			this.txtResult.Location = new System.Drawing.Point(12, 216);
 			this.txtResult.Multiline = true;
 			this.txtResult.Name = "txtResult";
-			this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.txtResult.Size = new System.Drawing.Size(312, 143);
+			this.txtResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+			this.txtResult.Size = new System.Drawing.Size(365, 143);
 			this.txtResult.TabIndex = 16;
+			this.txtResult.WordWrap = false;
+			// 
+			// opdCSharp
+			// 
+			this.opdCSharp.FileName = "openFileDialog1";
+			// 
+			// opdPascal
+			// 
+			this.opdPascal.FileName = "openFileDialog2";
+			// 
+			// lbDest
+			// 
+			this.lbDest.AutoSize = true;
+			this.lbDest.Location = new System.Drawing.Point(11, 121);
+			this.lbDest.Name = "lbDest";
+			this.lbDest.Size = new System.Drawing.Size(313, 13);
+			this.lbDest.TabIndex = 19;
+			this.lbDest.Text = "Seleziona cartella di destinazione (lascia vuoto per sovrascrivere)";
+			// 
+			// txtDest
+			// 
+			this.txtDest.Location = new System.Drawing.Point(110, 139);
+			this.txtDest.Name = "txtDest";
+			this.txtDest.ReadOnly = true;
+			this.txtDest.Size = new System.Drawing.Size(277, 20);
+			this.txtDest.TabIndex = 18;
+			// 
+			// btnDest
+			// 
+			this.btnDest.Location = new System.Drawing.Point(14, 137);
+			this.btnDest.Name = "btnDest";
+			this.btnDest.Size = new System.Drawing.Size(73, 22);
+			this.btnDest.TabIndex = 17;
+			this.btnDest.Text = "Sfoglia";
+			this.btnDest.UseVisualStyleBackColor = true;
+			this.btnDest.Click += new System.EventHandler(this.BtnDestClick);
 			// 
 			// TrasformCodeSingle
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(336, 328);
+			this.ClientSize = new System.Drawing.Size(389, 371);
+			this.Controls.Add(this.lbDest);
+			this.Controls.Add(this.txtDest);
+			this.Controls.Add(this.btnDest);
 			this.Controls.Add(this.txtResult);
 			this.Controls.Add(this.btnConvert);
 			this.Controls.Add(this.label1);
@@ -138,6 +188,12 @@ namespace TransformationDePascalAC
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.FolderBrowserDialog fbdDest;
+		private System.Windows.Forms.Button btnDest;
+		private System.Windows.Forms.TextBox txtDest;
+		private System.Windows.Forms.Label lbDest;
+		private System.Windows.Forms.OpenFileDialog opdPascal;
+		private System.Windows.Forms.OpenFileDialog opdCSharp;
 		private System.Windows.Forms.TextBox txtResult;
 		private System.Windows.Forms.Button btnConvert;
 		private System.Windows.Forms.Button btnSelezionaPascal;

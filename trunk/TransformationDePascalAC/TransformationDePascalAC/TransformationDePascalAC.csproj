@@ -58,6 +58,10 @@
       <DependentUpon>EnsembleCodeGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="FileMatched.cs" />
+    <Compile Include="SqlCommentGenerator.cs" />
+    <Compile Include="SqlCommentGenerator.Designer.cs">
+      <DependentUpon>SqlCommentGenerator.cs</DependentUpon>
+    </Compile>
     <Compile Include="TransformCode.cs">
       <SubType>Form</SubType>
     </Compile>
