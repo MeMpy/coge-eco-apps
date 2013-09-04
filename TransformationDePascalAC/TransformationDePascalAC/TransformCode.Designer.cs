@@ -233,6 +233,7 @@ namespace TransformationDePascalAC
         	this.convertiDefBDDSingoliToolStripMenuItem.Name = "convertiDefBDDSingoliToolStripMenuItem";
         	this.convertiDefBDDSingoliToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
         	this.convertiDefBDDSingoliToolStripMenuItem.Text = "Converti DefBDD Singoli";
+        	this.convertiDefBDDSingoliToolStripMenuItem.Click += new System.EventHandler(this.ConvertiDefBDDSingoliToolStripMenuItemClick);
         	// 
         	// viewCodesToolStripMenuItem
         	// 

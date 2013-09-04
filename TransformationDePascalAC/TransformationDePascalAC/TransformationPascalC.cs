@@ -46,7 +46,7 @@ namespace TransformationDePascalAC
         /// <param name="pascalPath"></param>
         /// <param name="cSharpPath"></param>
         /// <returns></returns>
-        public static bool doTransformation(string pascalPath, string cSharpPath, string destPath)
+        public static FileCode doTransformation(string pascalPath, string cSharpPath, string destPath)
         {
             
             try
@@ -63,13 +63,14 @@ namespace TransformationDePascalAC
 
                 cSharpFile.writeFile(cSharpPath, destPath);
 
-                return true;
+                
+                return cSharpFile;
 
             }
             catch (Exception)
             {
                 
-                return false;
+                return null;
             }
             
 

@@ -15,170 +15,168 @@ using EnsembleCoGe;
 
 namespace TransformationDePascalAC
 {
-    public partial class TransformCode : Form
-    {
-       
-        private string[] filesPascal;
-        private string[] filesC;
+	public partial class TransformCode : Form
+	{
+		
+		private string[] filesPascal;
+		private string[] filesC;
 
-        private List<FileMatched> filesMatched;
+		private List<FileMatched> filesMatched;
 
-        public TransformCode()
+		public TransformCode()
+		{
+			InitializeComponent();
+			
+		}
+
+
+		#region Event
+
+		#region Button click
+
+		private void btnSelezionaP_Click(object sender, EventArgs e)
+		{
+			//al click si apre finestra per selezionare cartella contenente files Pascal
+			DialogResult folderResult = folderSource.ShowDialog();
+
+			if (folderResult == DialogResult.OK)
+			{
+				filesPascal = Directory.GetFiles(folderSource.SelectedPath, @"*.pas", SearchOption.AllDirectories);
+				txtPascal.Text = folderSource.SelectedPath;
+			}
+		}
+
+		private void btnSelezionaC_Click(object sender, EventArgs e)
+		{
+			//al click si apre finestra per selezionare cartella contenente files C#
+			DialogResult folderResult = folderSource.ShowDialog();
+
+			if (folderResult == DialogResult.OK)
+			{
+
+				txtCSharp.Text = folderSource.SelectedPath;
+			}
+		}
+
+		private void btnDest_Click(object sender, EventArgs e)
+		{
+			//al click si apre finestra per selezionare cartella di destinazione
+			DialogResult folderResult = folderSource.ShowDialog();
+
+			if (folderResult == DialogResult.OK)
+			{
+
+				txtDest.Text = folderSource.SelectedPath;
+			}
+		}
+
+
+
+		private void btnRunMatch_Click(object sender, EventArgs e)
+		{
+			//messagebox se non si selezionano cartella origine o cartella destinazione
+
+			if (txtCSharp.Text == string.Empty)
+			{
+				MessageBox.Show("Selezionare cartella contenente files da aggiornare");
+			}
+			else if (txtPascal.Text == string.Empty)
+			{
+				MessageBox.Show("Selezionare cartella contenente files con dati utili per l'aggiornamento");
+			}
+			else
+			{
+				filesC = Directory.GetFiles(txtCSharp.Text, @"*.cs", SearchOption.AllDirectories);
+				filesPascal = Directory.GetFiles(txtPascal.Text, @"*.pas", SearchOption.AllDirectories);
+				filesMatched = TransformationPascalC.findMatchesCSharpIntoPascal(filesC, filesPascal);
+
+
+
+				gridViewFileMatched.DataSource = filesMatched;
+
+			}
+		}
+
+		private void btntrasform_Click(object sender, EventArgs e)
+		{
+			List<FileMatched> fileMatchedFromGrid = gridViewFileMatched.DataSource as List<FileMatched>;
+			int count = 0;
+			object trasformed = null;
+
+			string destPath = string.IsNullOrEmpty(txtDest.Text)? null: txtDest.Text;
+
+			foreach (FileMatched item in fileMatchedFromGrid)
+			{
+				if (item.CheckedForTransformation)
+				{
+					trasformed = TransformationPascalC.doTransformation(item.FullPathPascalFile, item.FullPathCFile, destPath);
+					if (trasformed!=null)
+						count++;
+				}
+			}
+
+			if (count > 0)
+			{
+				MessageBox.Show("Trasformazione effettuata per: " + count + " files");
+			}
+			else
+			{
+				MessageBox.Show("Nessuna trasformazione effettuata");
+			}
+
+
+		}
+
+		
+
+
+		#endregion
+		
+		#region ToolStrip Menu
+		private void esciToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			this.Close();
+			this.Dispose();
+		}
+		
+		private void generatoreGuiToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			
+			OpenNewForm(new DefBDD2Form());
+		}
+
+
+		private void generatoreEnsemblesToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			
+			OpenNewForm(new EnsembleCodeGenerator());
+		}
+		
+		void ConvertiDefBDDSingoliToolStripMenuItemClick(object sender, EventArgs e)
         {
-            InitializeComponent();
-          
+        	OpenNewForm(new TrasformCodeSingle());
         }
 
+		private void OpenNewForm(Form f)
+		{
+			this.Visible = false;
+			DialogResult diag = f.ShowDialog();
 
-        #region Event
+			this.Visible = true;
+		}
 
-        #region Button click
+		#endregion
 
-        private void btnSelezionaP_Click(object sender, EventArgs e)
-        {
-            //al click si apre finestra per selezionare cartella contenente files Pascal
-            DialogResult folderResult = folderSource.ShowDialog();
+		private void selectAllChkBox_CheckedChanged(object sender, EventArgs e)
+		{
+			for (int i = 0; i < gridViewFileMatched.RowCount; i++)
+			{
+				gridViewFileMatched[2, i].Value = selectAllChkBox.Checked;
+			}
+		}
 
-            if (folderResult == DialogResult.OK)
-            {
-                filesPascal = Directory.GetFiles(folderSource.SelectedPath, @"*.pas", SearchOption.AllDirectories);
-                txtPascal.Text = folderSource.SelectedPath;
-            }
-        }
+		#endregion
 
-        private void btnSelezionaC_Click(object sender, EventArgs e)
-        {
-            //al click si apre finestra per selezionare cartella contenente files C#
-            DialogResult folderResult = folderSource.ShowDialog();
-
-            if (folderResult == DialogResult.OK)
-            {
-
-                txtCSharp.Text = folderSource.SelectedPath;
-            }
-        }
-
-        private void btnDest_Click(object sender, EventArgs e)
-        {
-            //al click si apre finestra per selezionare cartella di destinazione
-            DialogResult folderResult = folderSource.ShowDialog();
-
-            if (folderResult == DialogResult.OK)
-            {
-
-                txtDest.Text = folderSource.SelectedPath;
-            }
-        }
-
-
-
-        private void btnRunMatch_Click(object sender, EventArgs e)
-        {
-            //messagebox se non si selezionano cartella origine o cartella destinazione            
-
-            if (txtCSharp.Text == string.Empty)
-            {
-                MessageBox.Show("Selezionare cartella contenente files da aggiornare");
-            }
-            else if (txtPascal.Text == string.Empty)
-            {
-                MessageBox.Show("Selezionare cartella contenente files con dati utili per l'aggiornamento");
-            }
-            else
-            {
-                filesC = Directory.GetFiles(txtCSharp.Text, @"*.cs", SearchOption.AllDirectories);
-                filesPascal = Directory.GetFiles(txtPascal.Text, @"*.pas", SearchOption.AllDirectories);
-                filesMatched = TransformationPascalC.findMatchesCSharpIntoPascal(filesC, filesPascal);
-
-
-
-                gridViewFileMatched.DataSource = filesMatched;
-
-            }
-        }
-
-        private void btntrasform_Click(object sender, EventArgs e)
-        {
-            List<FileMatched> fileMatchedFromGrid = gridViewFileMatched.DataSource as List<FileMatched>;
-            int count = 0;
-            bool trasformed = false;
-
-            string destPath = string.IsNullOrEmpty(txtDest.Text)? null: txtDest.Text;
-
-            foreach (FileMatched item in fileMatchedFromGrid)
-            {
-                if (item.CheckedForTransformation)
-                {
-                    trasformed = TransformationPascalC.doTransformation(item.FullPathPascalFile, item.FullPathCFile, destPath);
-                    if (trasformed)
-                        count++;
-                }
-            }
-
-            if (count > 0)
-            {
-                MessageBox.Show("Trasformazione effettuata per: " + count + " files");
-            }
-            else
-            {
-                MessageBox.Show("Nessuna trasformazione effettuata");
-            }
-
-
-        }
-
-        
-
-
-        #endregion
-        
-        #region ToolStrip Menu
-        private void esciToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Close();
-            this.Dispose();
-        }
-        
-        private void generatoreGuiToolStripMenuItem_Click(object sender, EventArgs e)        
-        {
-            
-            this.Visible = false;
-            DialogResult res = new DefBDD2Form().ShowDialog();
-
-            this.Visible = true;
-        }
-
-
-        private void generatoreEnsemblesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            this.Visible = false;
-            DialogResult diag = new EnsembleCodeGenerator().ShowDialog();
-
-            this.Visible = true;
-        }
-
-        #endregion
-
-        private void selectAllChkBox_CheckedChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < gridViewFileMatched.RowCount; i++)
-            {
-                gridViewFileMatched[2, i].Value = selectAllChkBox.Checked;
-            }
-        }
-
-        #endregion
-
-
-
-
-
-
-
-
-
-
-
-    }
+	}
 
 }
