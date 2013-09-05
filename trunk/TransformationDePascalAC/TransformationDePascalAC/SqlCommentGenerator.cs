@@ -38,5 +38,29 @@ namespace TransformationDePascalAC
 				txtPkg.Text = opfPkg.SafeFileName;
 			}
 		}
+		
+		void BtnGenerateClick(object sender, EventArgs e)
+		{
+			SqlCommentDoIt doIt = new SqlCommentDoIt(filePkg, txtName.Text, txtPass.Text, txtSource.Text, chkOverwriteFile.Checked);
+			
+			if(chkOverwriteFile.Checked)
+			{
+				if( Convert.ToBoolean(doIt.ExecuteGeneration()))
+				{
+					MessageBox.Show("Scrittura effettuata");
+					return;
+				}else
+				{
+					MessageBox.Show("Scrittura non effettuata");
+					return;
+				}
+					
+			}else
+			{
+				string result = doIt.ExecuteGeneration() as string;
+				txtResult.Text = result;
+			}
+			
+		}
 	}
 }

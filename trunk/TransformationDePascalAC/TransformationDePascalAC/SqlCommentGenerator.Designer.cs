@@ -49,6 +49,7 @@ namespace TransformationDePascalAC
 			this.btnGenerate = new System.Windows.Forms.Button();
 			this.txtResult = new System.Windows.Forms.TextBox();
 			this.opfPkg = new System.Windows.Forms.OpenFileDialog();
+			this.chkOverwriteFile = new System.Windows.Forms.CheckBox();
 			this.SuspendLayout();
 			// 
 			// lbCredit
@@ -140,6 +141,7 @@ namespace TransformationDePascalAC
 			this.btnGenerate.TabIndex = 15;
 			this.btnGenerate.Text = "Genera!!";
 			this.btnGenerate.UseVisualStyleBackColor = true;
+			this.btnGenerate.Click += new System.EventHandler(this.BtnGenerateClick);
 			// 
 			// txtResult
 			// 
@@ -157,11 +159,21 @@ namespace TransformationDePascalAC
 			// 
 			this.opfPkg.FileName = "openFileDialog1";
 			// 
+			// chkOverwriteFile
+			// 
+			this.chkOverwriteFile.Location = new System.Drawing.Point(236, 201);
+			this.chkOverwriteFile.Name = "chkOverwriteFile";
+			this.chkOverwriteFile.Size = new System.Drawing.Size(104, 24);
+			this.chkOverwriteFile.TabIndex = 18;
+			this.chkOverwriteFile.Text = "Sovrascrivi file";
+			this.chkOverwriteFile.UseVisualStyleBackColor = true;
+			// 
 			// SqlCommentGenerator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(391, 392);
+			this.Controls.Add(this.chkOverwriteFile);
 			this.Controls.Add(this.txtResult);
 			this.Controls.Add(this.btnGenerate);
 			this.Controls.Add(this.lbCsharp);
@@ -179,6 +191,7 @@ namespace TransformationDePascalAC
 			this.ResumeLayout(false);
 			this.PerformLayout();
 		}
+		private System.Windows.Forms.CheckBox chkOverwriteFile;
 		private System.Windows.Forms.OpenFileDialog opfPkg;
 		private System.Windows.Forms.TextBox txtResult;
 		private System.Windows.Forms.Button btnGenerate;
