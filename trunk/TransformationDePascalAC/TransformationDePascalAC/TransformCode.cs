@@ -152,9 +152,14 @@ namespace TransformationDePascalAC
 			OpenNewForm(new EnsembleCodeGenerator());
 		}
 		
-		void ConvertiDefBDDSingoliToolStripMenuItemClick(object sender, EventArgs e)
+		private void ConvertiDefBDDSingoliToolStripMenuItemClick(object sender, EventArgs e)
         {
         	OpenNewForm(new TrasformCodeSingle());
+        }
+		
+		private void GeneraCommentiSqlToolStripMenuItemClick(object sender, EventArgs e)
+        {
+			OpenNewForm(new SqlCommentGenerator());
         }
 
 		private void OpenNewForm(Form f)
@@ -177,6 +182,8 @@ namespace TransformationDePascalAC
 
 		#endregion
 
+        
+       
 	}
 
 }

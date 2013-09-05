@@ -277,6 +277,7 @@ namespace TransformationDePascalAC
         	this.generaCommentiSqlToolStripMenuItem.Name = "generaCommentiSqlToolStripMenuItem";
         	this.generaCommentiSqlToolStripMenuItem.Size = new System.Drawing.Size(250, 22);
         	this.generaCommentiSqlToolStripMenuItem.Text = "Genera Commenti Sql";
+        	this.generaCommentiSqlToolStripMenuItem.Click += new System.EventHandler(this.GeneraCommentiSqlToolStripMenuItemClick);
         	// 
         	// pnTrasformDefBDD
         	// 
