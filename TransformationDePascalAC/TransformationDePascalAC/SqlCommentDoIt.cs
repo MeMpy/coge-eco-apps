@@ -63,7 +63,7 @@ namespace TransformationDePascalAC
 			
 			try
 			{
-				using (StreamReader f = new StreamReader(pkgFilePath))
+				using (StreamReader f = new StreamReader(pkgFilePath,  Encoding.GetEncoding("iso-8859-1")))
 				{
 					string line = null;
 					Procedure p = orderedProcs.ElementAt(procCount);
@@ -73,8 +73,14 @@ namespace TransformationDePascalAC
 						if(lineCount == p.LineIndex)
 						{
 							pkgWithComment.AppendLine(p.Comments);
+							pkgWithComment.Append(line);							
 							procCount++;
-							p= orderedProcs.ElementAt(procCount);
+							//Se ci sono ancora procedure vai avanti
+							if(procCount< procedures.Count)
+								p= orderedProcs.ElementAt(procCount);
+							//Altrimenti devi scrivere il resto del file uguale
+							//Questo avviene perchè lineCount supera LineIndex
+							
 							
 						}else
 						{
@@ -114,13 +120,14 @@ namespace TransformationDePascalAC
 			using (OracleConnection con = new OracleConnection())
 			{
 				//using connection string attributes to connect to Oracle Database
-				con.ConnectionString = "User Id="+"name"+";Password="+pass+";Data Source="+source;
+				con.ConnectionString = "User Id="+name+";Password="+pass+";Data Source="+source;
 				con.Open();
 				Console.WriteLine("Connected to Oracle" + con.ServerVersion);
 				
 				OracleCommand command = con.CreateCommand();
 				
-				result = new StringBuilder("-- Params             Description\r\n");
+				result = new StringBuilder();
+				result.AppendLine("-- Params             Description");
 				
 				StringBuilder singleComment = new StringBuilder();
 				foreach (Procedure p in procedures) 
@@ -129,7 +136,7 @@ namespace TransformationDePascalAC
 					singleComment.AppendLine("\\**************************************\\");
 					singleComment.AppendLine("*          "+p.Name.ToUpper()+"         *");
 					singleComment.AppendLine("\\**************************************\\");
-					singleComment.AppendLine(BuildParamsComments(command, p));
+					singleComment.Append(BuildParamsComments(command, p));
 					p.Comments = singleComment.ToString();
 					result.AppendLine(singleComment.ToString());
 					singleComment.Clear();
@@ -145,7 +152,7 @@ namespace TransformationDePascalAC
 				
 			}
 			
-			return result.ToString();
+			return result.ToString().TrimEnd(Environment.NewLine.ToCharArray());
 			
 		}
 		
@@ -162,7 +169,7 @@ namespace TransformationDePascalAC
 				                                          	'%'
 				                                          });
 				String[] paramNameSplitted = paramSplitted[0].Split(new char[] { ' ' });
-				String paramName = paramNameSplitted[0];
+				String paramName = param.Name;
 				String table = paramNameSplitted[paramNameSplitted.Length - 1];
 				string sql = "select table_name, column_name, comments from user_col_comments where table_name = '" + table + "' and column_name = '" + paramSplitted[1] + "'";
 				command.CommandText = sql;
@@ -172,11 +179,11 @@ namespace TransformationDePascalAC
 					if (myField != null) {
 						string space = "                   ";
 						space = space.Substring(paramName.Length);
-						Console.WriteLine("\t-- %param " + paramName + space + myField);
-						result.AppendLine("\t-- %param " + paramName + space + myField + "\r\n");
+						Console.WriteLine("-- %param " + paramName + space + myField);
+						result.AppendLine("-- %param " + paramName + space + myField);
 					} else {
-						Console.WriteLine("\t-- %param " + paramName);
-						result.AppendLine("\t-- %param " + paramName + "\r\n");
+						Console.WriteLine("-- %param " + paramName);
+						result.AppendLine("-- %param " + paramName);
 					}
 				}
 			}

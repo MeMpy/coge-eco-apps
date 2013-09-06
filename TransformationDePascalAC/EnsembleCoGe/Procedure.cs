@@ -98,10 +98,12 @@ namespace EnsembleCoGe
         private static List<Parameter> BuildParametersFromXmlElement(IEnumerable<XElement> paramsElements)
         {
             List<Parameter> parameters = new List<Parameter>();
-            Parameter p = new Parameter();
+            Parameter p = null;
 
             foreach (XElement param in paramsElements)
             {
+            	p = new Parameter();
+            	
                 p.Name = param.Element("name").Value.Trim();           
 
                 p.Type = param.Element("type").Value.Trim();           
