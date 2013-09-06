@@ -89,14 +89,14 @@ namespace TransformationDePascalAC
 			this.txtName.Location = new System.Drawing.Point(83, 44);
 			this.txtName.Name = "txtName";
 			this.txtName.Size = new System.Drawing.Size(100, 20);
-			this.txtName.TabIndex = 4;
+			this.txtName.TabIndex = 1;
 			// 
 			// txtSource
 			// 
 			this.txtSource.Location = new System.Drawing.Point(83, 105);
 			this.txtSource.Name = "txtSource";
 			this.txtSource.Size = new System.Drawing.Size(100, 20);
-			this.txtSource.TabIndex = 5;
+			this.txtSource.TabIndex = 3;
 			// 
 			// txtPass
 			// 
@@ -104,7 +104,7 @@ namespace TransformationDePascalAC
 			this.txtPass.Name = "txtPass";
 			this.txtPass.PasswordChar = '*';
 			this.txtPass.Size = new System.Drawing.Size(100, 20);
-			this.txtPass.TabIndex = 6;
+			this.txtPass.TabIndex = 2;
 			// 
 			// lbCsharp
 			// 
@@ -128,7 +128,7 @@ namespace TransformationDePascalAC
 			this.btnSelezionaPkg.Location = new System.Drawing.Point(9, 161);
 			this.btnSelezionaPkg.Name = "btnSelezionaPkg";
 			this.btnSelezionaPkg.Size = new System.Drawing.Size(74, 22);
-			this.btnSelezionaPkg.TabIndex = 12;
+			this.btnSelezionaPkg.TabIndex = 4;
 			this.btnSelezionaPkg.Text = "Sfoglia";
 			this.btnSelezionaPkg.UseVisualStyleBackColor = true;
 			this.btnSelezionaPkg.Click += new System.EventHandler(this.BtnSelezionaPkgClick);

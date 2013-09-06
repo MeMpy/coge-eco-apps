@@ -62,5 +62,10 @@ namespace TransformationDePascalAC
 			}
 			
 		}
+		
+		void TxtPassTextChanged(object sender, EventArgs e)
+		{
+			
+		}
 	}
 }
