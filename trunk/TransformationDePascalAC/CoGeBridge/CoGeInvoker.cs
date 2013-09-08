@@ -59,7 +59,9 @@ namespace CoGeBridge
 
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
-            startInfo.UseShellExecute = false;           
+            startInfo.UseShellExecute = false;
+
+            startInfo.StandardOutputEncoding = new UTF8Encoding();
 
             object result = null;
 
@@ -67,6 +69,7 @@ namespace CoGeBridge
             // Call WaitForExit and then the using statement will close.
             using (Process exeProcess = Process.Start(startInfo))
             {
+                
                 result = this.ProcessOutput(exeProcess.StandardOutput);
                 exeProcess.WaitForExit();
 
