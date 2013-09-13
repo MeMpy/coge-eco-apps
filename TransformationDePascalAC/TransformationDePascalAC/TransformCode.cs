@@ -169,6 +169,11 @@ namespace TransformationDePascalAC
 
 			this.Visible = true;
 		}
+		
+		void ViewCodesToolStripMenuItemClick(object sender, EventArgs e)
+        {
+			new InvokeEcoSnip().OpenEcoSnip();
+        }
 
 		#endregion
 
@@ -184,6 +189,8 @@ namespace TransformationDePascalAC
 
         
        
+        
+        
 	}
 
 }

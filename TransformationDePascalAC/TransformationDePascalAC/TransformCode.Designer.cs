@@ -240,6 +240,7 @@ namespace TransformationDePascalAC
         	this.viewCodesToolStripMenuItem.Name = "viewCodesToolStripMenuItem";
         	this.viewCodesToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
         	this.viewCodesToolStripMenuItem.Text = "Visualizza Codici";
+        	this.viewCodesToolStripMenuItem.Click += new System.EventHandler(this.ViewCodesToolStripMenuItemClick);
         	// 
         	// esciToolStripMenuItem
         	// 

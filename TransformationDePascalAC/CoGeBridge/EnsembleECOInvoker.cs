@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 
+using EnsembleCoGe;
+
 namespace CoGeBridge
 {
     public class EnsembleECOInvoker: CoGeInvoker
@@ -16,6 +18,21 @@ namespace CoGeBridge
 
         private static EnsembleECOInvoker invoker = new EnsembleECOInvoker();
 
+        
+        protected override void setSpecificsProcessArguments(object args)
+		{			
+        	List<Procedure> selectedProcs = args as List<Procedure>;
+        	if(selectedProcs== null)
+        		throw new Exception("Args type error expected List<Procedure>");
+        	
+            if(selectedProcs.Count == 0)
+            	throw new Exception("No procedure selected");
+            
+            foreach (Procedure proc in selectedProcs)
+            {
+            	startInfo.Arguments += string.Format(" +proc {0} {1}",  proc.Name, proc.CollectParam);
+            }
+		}
 
         protected override object ProcessOutput(StreamReader streamReader)
         {
@@ -67,14 +84,17 @@ namespace CoGeBridge
         }
 
         //Entry Point
-        public static object InvokeCoGe(string filePath, string serviceName, bool saveToFile)
+        public static object InvokeCoGe(string filePath, string serviceName, List<Procedure> selectedProcs, bool saveToFile)
         {
             invoker.SetTemplate(EnsembleECOInvoker.templateECO);
             invoker.SetReaderArguments(@filePath);
-            invoker.SetProcessArgument(serviceName);
+            invoker.SetProcessArguments(serviceName);
+            invoker.setSpecificsProcessArguments(selectedProcs);
             invoker.SetSaveToFile(saveToFile);
             return invoker.ExecuteCoGe();
         }
+        
+		
 
 
     }

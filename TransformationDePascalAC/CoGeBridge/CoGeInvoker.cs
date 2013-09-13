@@ -12,9 +12,9 @@ namespace CoGeBridge
 
     	private static readonly string executeDir = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.
     	                                                                            GetExecutingAssembly().Location);
-        private static readonly string cogeExeRelativ = Path.Combine("coge_dist", "CoGe.exe");
+        private static readonly string cogeExeRelativ = Path.Combine("coge_dist", "CoGePy.exe");
         
-        ProcessStartInfo startInfo;
+        protected ProcessStartInfo startInfo;
 
 
         public CoGeInvoker()
@@ -43,7 +43,7 @@ namespace CoGeBridge
             }
         }
 
-        protected void SetProcessArgument(params string[] args)
+        protected void SetProcessArguments(params string[] args)
         {
             startInfo.Arguments += " -p ";
             foreach (var arg in args)
@@ -51,6 +51,12 @@ namespace CoGeBridge
                 startInfo.Arguments += arg + " ";
             }
         }
+        
+        protected virtual void setSpecificsProcessArguments(object args)
+        {
+        	//Not implemented
+        }
+        
         /// <summary>
         /// Launch the CoGe application redirecting output.
         /// </summary>

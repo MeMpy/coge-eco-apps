@@ -54,7 +54,16 @@ namespace TransformationDePascalAC
                 MessageBox.Show("Devi inserire anche il nome del servizio");
                 return;
             }
-            string result = EnsembleECOInvoker.InvokeCoGe(txtScript.Text, txtService.Text, chkSaveFile.Checked) as string;
+            
+            List<Procedure> selectedandCheckedProcs = selectProcedureBS.DataSource as List<Procedure>;
+            
+            if(selectedandCheckedProcs.Count == 0)
+            {
+            	MessageBox.Show("Devi selezionare almeno una procedura da generare");
+            	return;
+            }
+            
+            string result = EnsembleECOInvoker.InvokeCoGe(txtScript.Text, txtService.Text, selectedandCheckedProcs, chkSaveFile.Checked) as string;
 
             //TODO Fare per bene
             if (chkSaveFile.Checked)
