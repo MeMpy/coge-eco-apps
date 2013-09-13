@@ -6,6 +6,8 @@ using System.Text;
 using System.Xml;
 using System.Xml.Linq;
 
+
+//TODO Togliere di mezzo e spostare procedure in CoGeBridge
 namespace EnsembleCoGe
 {
     public class Procedure
@@ -14,6 +16,7 @@ namespace EnsembleCoGe
         public string Name { get; set; }
         public int LineIndex { get; set; }
         public string Comments { get; set; }
+        public int CollectParam {get ; set;}
 
         private List<Parameter> parameters;
 

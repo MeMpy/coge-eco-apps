@@ -45,6 +45,12 @@
     <Compile Include="ProceduresInvoker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnsembleCoGe\EnsembleCoGe.csproj">
+      <Project>{FDC38A77-07D7-45BF-814A-E32F3721010D}</Project>
+      <Name>EnsembleCoGe</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

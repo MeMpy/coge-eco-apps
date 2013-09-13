@@ -59,6 +59,7 @@
       <DependentUpon>EnsembleCodeGenerator.cs</DependentUpon>
     </Compile>
     <Compile Include="FileMatched.cs" />
+    <Compile Include="InvokeEcoSnip.cs" />
     <Compile Include="SqlCommentDoIt.cs" />
     <Compile Include="SqlCommentGenerator.cs">
       <SubType>Form</SubType>
