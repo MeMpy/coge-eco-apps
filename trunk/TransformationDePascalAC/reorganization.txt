@@ -1,0 +1,53 @@
+TrasformationDePascalAC (Main)
+	Forms
+		DefBDD2Form
+		EnsembleCodeGenerator
+		SqlCommentGenerator
+		TransformCode (Main)
+		TransformCodeSingle
+	Controller (singleton per ogni form)
+		TrasformationPascalC --->> TrasformCodeController
+		GenerateCSharpGui ---->> DefBDD2FormController
+		SqlCommentDoIt ----> SqlCommentController
+		InvokeEcoSnip --->> InvokeEcoSnipController
+		EnsembleCodeController (NEW)
+	Model
+		FileMatched
+
+EnsembleCoGe ------>> DELETE
+
+CoGeBridge
+	Invoker
+		CoGeInvoker
+		EnsembleEcoInvoker
+		ProceduresInvoker
+	Model
+		Procedure (Da prendere in EnsembleCoGe)
+
+CodeTransformation
+	Model
+		FileCode
+		FileItem
+		CSharpFileCode
+		PascalFileCode
+	Util
+		DisckUtils
+
+DrowItems
+	Decorator
+		FontStyleDecorator
+		LabelTextPositionLayoutDecorator
+	
+	AbstractComponent
+		DrawItem
+		DecoratedItem
+		
+	ConcreteComponent
+		LabelItem
+		TextItem
+		LayoutTableItem
+		
+
+NOTA: Potrebbe essere meglio posizionare i controllori nei relativi progetti. 
+Questo passaggio puo avvenire in una seconda fase. Solo dopo aver controllato che i controller non utilizzino nulla
+del main project
