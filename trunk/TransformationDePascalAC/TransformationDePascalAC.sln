@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawItems", "DrawItems\Draw
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CoGeBridge", "CoGeBridge\CoGeBridge.csproj", "{C415C35F-52E8-474F-8F19-88B18363A256}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnsembleCoGe", "EnsembleCoGe\EnsembleCoGe.csproj", "{FDC38A77-07D7-45BF-814A-E32F3721010D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,16 +59,6 @@ Global
 		{C415C35F-52E8-474F-8F19-88B18363A256}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C415C35F-52E8-474F-8F19-88B18363A256}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C415C35F-52E8-474F-8F19-88B18363A256}.Release|x86.ActiveCfg = Release|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{FDC38A77-07D7-45BF-814A-E32F3721010D}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

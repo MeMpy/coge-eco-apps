@@ -41,11 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSharpFileCode.cs" />
-    <Compile Include="DiskUtils.cs" />
-    <Compile Include="FileCode.cs" />
-    <Compile Include="FileItem.cs" />
-    <Compile Include="PascalFileCode.cs" />
+    <Compile Include="Model\CSharpFileCode.cs" />
+    <Compile Include="Utils\DiskUtils.cs" />
+    <Compile Include="Model\FileCode.cs" />
+    <Compile Include="Model\FileItem.cs" />
+    <Compile Include="Model\PascalFileCode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -5,16 +5,22 @@ TrasformationDePascalAC (Main)
 		SqlCommentGenerator
 		TransformCode (Main)
 		TransformCodeSingle
-	Controller (singleton per ogni form)
+___________________________________________
+
+	Controller (singleton per ogni form) <<<---Singleton ufficio
 		TrasformationPascalC --->> TrasformCodeController
 		GenerateCSharpGui ---->> DefBDD2FormController
 		SqlCommentDoIt ----> SqlCommentController
-		InvokeEcoSnip --->> InvokeEcoSnipController
-		EnsembleCodeController (NEW)
+		InvokeEcoSnip --->> InvokeEcoSnipController <--------Da Fare in ufficio
+		EnsembleCodeController (NEW)  <<--------Ufficio
+
+____________________________________
 	Model
 		FileMatched
 
+_________________________________
 EnsembleCoGe ------>> DELETE
+___________________________________
 
 CoGeBridge
 	Invoker
@@ -24,6 +30,8 @@ CoGeBridge
 	Model
 		Procedure (Da prendere in EnsembleCoGe)
 
+__________________________________________
+
 CodeTransformation
 	Model
 		FileCode
@@ -32,6 +40,8 @@ CodeTransformation
 		PascalFileCode
 	Util
 		DisckUtils
+
+______________________________________
 
 DrowItems
 	Decorator
@@ -46,8 +56,11 @@ DrowItems
 		LabelItem
 		TextItem
 		LayoutTableItem
-		
+
+_______________________________________________
 
 NOTA: Potrebbe essere meglio posizionare i controllori nei relativi progetti. 
 Questo passaggio puo avvenire in una seconda fase. Solo dopo aver controllato che i controller non utilizzino nulla
+
+fORSE NON SI PUO FARE PERCHE ALCUNI CONTROLLER UTILIZZANO COSE DI ALTRE LIBRERIE
 del main project

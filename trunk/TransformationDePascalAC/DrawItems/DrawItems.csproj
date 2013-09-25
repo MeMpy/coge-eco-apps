@@ -43,14 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DecoratedItem.cs" />
-    <Compile Include="DrawItem.cs" />
-    <Compile Include="FontStyleDecorator.cs" />
-    <Compile Include="LabelItem.cs" />
-    <Compile Include="LabelTextPositionLayoutDecorator.cs" />
-    <Compile Include="LayoutTableItem.cs" />
+    <Compile Include="AbstractComponents\DecoratedItem.cs" />
+    <Compile Include="AbstractComponents\DrawItem.cs" />
+    <Compile Include="Decorators\FontStyleDecorator.cs" />
+    <Compile Include="ConcreteComponents\LabelItem.cs" />
+    <Compile Include="Decorators\LabelTextPositionLayoutDecorator.cs" />
+    <Compile Include="ConcreteComponents\LayoutTableItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TextItem.cs" />
+    <Compile Include="ConcreteComponents\TextItem.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
