@@ -17,6 +17,24 @@ namespace TransformationDePascalAC.Controller
 {
     public class DefBDD2FormController
     {
+    	
+    	#region Singleton
+    	
+    	private static DefBDD2FormController _instance;
+    	
+    	private DefBDD2FormController(){}
+    	
+    	public static DefBDD2FormController Instance{
+    		get{
+    			if(_instance == null)
+    				_instance = new DefBDD2FormController();
+				return _instance;    			
+    		}
+    	}
+    	
+    	#endregion
+    	
+    	
         #region Fields
 
         private string fileCSharpPath;
@@ -108,8 +126,6 @@ namespace TransformationDePascalAC.Controller
         /// Visualizza una coppia: 
         /// Label - TextBox
         /// </summary>
-        /// <param name="fileCSharpPath"></param>
-        /// <returns></returns>
         public string generateCode()
         {
 

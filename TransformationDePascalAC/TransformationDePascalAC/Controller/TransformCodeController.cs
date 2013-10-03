@@ -15,12 +15,25 @@ namespace TransformationDePascalAC.Controller
 {
     /// <summary>
     /// Controller: fa comunicare la libreria CodeTrasformation con l'interfaccia tramite metodi statici
-    /// //TODO probabilmente inutile puo essere accorpato parte nella libreria parte nell'interfaccia
+    /// //TODO Potrebbe essere utile memorizzare i vari path per rendere piu facile la chiamata ai metodi
     /// </summary>
     public class TransformCodeController
     {               
+    	
+    	private static TransformCodeController _instance;
+    	
+    	private TransformCodeController(){}
+    	
+    	public static TransformCodeController Instance {
+    		get {
+    			if (_instance == null )
+    				_instance = new TransformCodeController();
+    			
+    			return _instance;
+    		}
+    	}
 
-        public static List<FileMatched> findMatchesCSharpIntoPascal(string[] filesCSharp, string[] filesPascal)
+        public List<FileMatched> findMatchesCSharpIntoPascal(string[] filesCSharp, string[] filesPascal)
         {
             string fileCSharpFullPath;
             List<FileMatched> filesMatched = new List<FileMatched>();
@@ -46,7 +59,7 @@ namespace TransformationDePascalAC.Controller
         /// <param name="pascalPath"></param>
         /// <param name="cSharpPath"></param>
         /// <returns></returns>
-        public static FileCode doTransformation(string pascalPath, string cSharpPath, string destPath)
+        public FileCode doTransformation(string pascalPath, string cSharpPath, string destPath)
         {
             
             try

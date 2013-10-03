@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\EnsembleCodeGeneratorController.cs" />
     <Compile Include="Forms\DefBDD2Form.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -24,12 +24,16 @@ namespace TransformationDePascalAC.Forms
 		string fileCSharp = null;
 		string filePascal = null;
 		
+		private TransformCodeController controller;
+		
 		public TrasformCodeSingle()
 		{
 			//
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			//
 			InitializeComponent();
+			
+			controller = TransformCodeController.Instance;
 			
 
 		}
@@ -74,7 +78,7 @@ namespace TransformationDePascalAC.Forms
 			 
 			 if (fileCSharp != null && filePascal != null){
 			 	
-			 	trasformed = TransformCodeController.doTransformation(filePascal, fileCSharp, destPath);
+			 	trasformed = controller.doTransformation(filePascal, fileCSharp, destPath);
 			 	
 			 	if(trasformed!=null)
 			 	{

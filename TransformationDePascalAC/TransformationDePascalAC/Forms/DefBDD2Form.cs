@@ -14,11 +14,13 @@ namespace TransformationDePascalAC.Forms
     {
         private string[] positions = { "Sopra", "Sotto", "Destra", "Sinistra" };
 
-        private DefBDD2FormController generator = new DefBDD2FormController();
+        private DefBDD2FormController controller;
 
         public DefBDD2Form()
         {
             InitializeComponent();
+            
+            controller = DefBDD2FormController.Instance;
 
             //Init FontName ComboBox
             initFontComboBox(cbCarattere);
@@ -80,20 +82,20 @@ namespace TransformationDePascalAC.Forms
             else
             {
                 
-                generator.FileCSharpPath = cSharpPath;
-                generator.FontColor = colorDialog.Color.ToArgb();
-                generator.FontName = cbCarattere.SelectedItem.ToString();
-                generator.FontStyle = (FontStyle) cbStile.SelectedItem ;
-                generator.NumCol = int.Parse(txtNumCol.Text);
-                generator.PosRel = cbPosizioneRelativa.SelectedItem.ToString();
-                generator.TextBoxWidth = int.Parse(txtSizeW.Text);
-                generator.XPos = int.Parse(txtPosX.Text);
-                generator.YPos = int.Parse(txtPosY.Text);
+                controller.FileCSharpPath = cSharpPath;
+                controller.FontColor = colorDialog.Color.ToArgb();
+                controller.FontName = cbCarattere.SelectedItem.ToString();
+                controller.FontStyle = (FontStyle) cbStile.SelectedItem ;
+                controller.NumCol = int.Parse(txtNumCol.Text);
+                controller.PosRel = cbPosizioneRelativa.SelectedItem.ToString();
+                controller.TextBoxWidth = int.Parse(txtSizeW.Text);
+                controller.XPos = int.Parse(txtPosX.Text);
+                controller.YPos = int.Parse(txtPosY.Text);
 
                
 
 
-                string code = generator.generateCode();                
+                string code = controller.generateCode();                
 
                 txtCodeGenerated.Text = code;
 
@@ -149,7 +151,7 @@ namespace TransformationDePascalAC.Forms
 
         private void btnPreview_Click(object sender, EventArgs e)
         {
-            generator.generatePreview();
+            controller.generatePreview();
         }
 
       

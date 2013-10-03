@@ -42,7 +42,7 @@ namespace TransformationDePascalAC.Forms
 		
 		void BtnGenerateClick(object sender, EventArgs e)
 		{
-			SqlCommentController doIt = new SqlCommentController(filePkg, txtName.Text, txtPass.Text, txtSource.Text, chkOverwriteFile.Checked);
+			SqlCommentController doIt = SqlCommentController.GetCommentControllerInstance(filePkg, txtName.Text, txtPass.Text, txtSource.Text, chkOverwriteFile.Checked);
 			
 			if(chkOverwriteFile.Checked)
 			{
