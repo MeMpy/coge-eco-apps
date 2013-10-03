@@ -22,10 +22,14 @@ namespace TransformationDePascalAC.Forms
 		private string[] filesC;
 
 		private List<FileMatched> filesMatched;
+		
+		private TransformCodeController controller;
 
 		public TransformCode()
 		{
 			InitializeComponent();
+			
+			controller = TransformCodeController.Instance;
 			
 		}
 
@@ -88,7 +92,7 @@ namespace TransformationDePascalAC.Forms
 			{
 				filesC = Directory.GetFiles(txtCSharp.Text, @"*.cs", SearchOption.AllDirectories);
 				filesPascal = Directory.GetFiles(txtPascal.Text, @"*.pas", SearchOption.AllDirectories);
-				filesMatched = TransformCodeController.findMatchesCSharpIntoPascal(filesC, filesPascal);
+				filesMatched = controller.findMatchesCSharpIntoPascal(filesC, filesPascal);
 
 
 
@@ -109,7 +113,7 @@ namespace TransformationDePascalAC.Forms
 			{
 				if (item.CheckedForTransformation)
 				{
-					trasformed = TransformCodeController.doTransformation(item.FullPathPascalFile, item.FullPathCFile, destPath);
+					trasformed = controller.doTransformation(item.FullPathPascalFile, item.FullPathCFile, destPath);
 					if (trasformed!=null)
 						count++;
 				}

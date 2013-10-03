@@ -26,22 +26,45 @@ namespace TransformationDePascalAC.Controller
 	/// </summary>
 	public class SqlCommentController
 	{
+		
+		#region Singleton
+		
+		private static SqlCommentController _instance;
+		
+		private SqlCommentController(){}
+		
+		private static SqlCommentController Instance{
+		
+			get{
+				if(_instance == null)
+					_instance = new SqlCommentController();
+								
+				return _instance;
+			}
+		}
+		
+		public static SqlCommentController GetCommentControllerInstance(string pkgFilePath, string name, string pass, string source, bool saveToFile)
+		{
+			SqlCommentController instance = Instance;
+			string xml = ProceduresInvoker.InvokeCoGe(pkgFilePath).ToString();
+			instance.procedures = ProceduresBuilder.BuildProceduresFromXml(xml);
+			instance.pkgFilePath = pkgFilePath;
+			instance.name = name;
+			instance.pass = pass;
+			instance.source = source;
+			instance.saveToFile = saveToFile;
+			
+			return instance;
+		}
+		
+		#endregion
+		
 		private  List<Procedure> procedures;
 		
 		private string pkgFilePath, name, pass, source;
 		
 		private bool saveToFile;
 		
-		public SqlCommentController(string pkgFilePath, string name, string pass, string source, bool saveToFile)
-		{
-			string xml = ProceduresInvoker.InvokeCoGe(pkgFilePath).ToString();
-			procedures = ProceduresBuilder.BuildProceduresFromXml(xml);
-			this.pkgFilePath = pkgFilePath;
-			this.name = name;
-			this.pass = pass;
-			this.source = source;
-			this.saveToFile = saveToFile;
-		}
 		
 		public object ExecuteGeneration()
 		{
@@ -111,8 +134,7 @@ namespace TransformationDePascalAC.Controller
 			
 		}
 		
-		//TODO Testare su VM
-		
+
 		private string doIt()
 		{
 			
