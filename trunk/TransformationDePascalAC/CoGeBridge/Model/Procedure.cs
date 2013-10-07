@@ -69,6 +69,9 @@ namespace CoGeBridge.Model
         {
             List<Procedure> procedures = new List<Procedure>();
             Procedure p = null;
+            if(string.IsNullOrEmpty(xml))
+            	throw new Exception("Xml is empty");
+            
             XDocument doc = XDocument.Parse(@xml);
             foreach (XElement item in doc.Root.Elements("procedure"))
             {
