@@ -176,7 +176,9 @@ namespace TransformationDePascalAC.Forms
 		
 		void ViewCodesToolStripMenuItemClick(object sender, EventArgs e)
         {
-			//new InvokeEcoSnip().OpenEcoSnip();
+			this.Visible = false;
+			InvokeEcoSnipController.Instance.OpenEcoSnip();
+			this.Visible = true;
         }
 
 		#endregion
