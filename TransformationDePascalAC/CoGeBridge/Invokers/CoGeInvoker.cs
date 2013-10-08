@@ -76,9 +76,11 @@ namespace CoGeBridge.Invokers
             using (Process exeProcess = Process.Start(startInfo))
             {
                 
-            	this.ProcessError(exeProcess.StandardError);
+            	
                 result = this.ProcessOutput(exeProcess.StandardOutput);
                 exeProcess.WaitForExit();
+                
+                this.ProcessError(exeProcess.StandardError);
 
 
             }
@@ -96,10 +98,10 @@ namespace CoGeBridge.Invokers
 
         }
         
-        protected virtual void ProcessError(StreamReader stremReader)
+        protected virtual void ProcessError(StreamReader streamReader)
         {
         	string error = string.Empty;
-        	error = stremReader.ReadToEnd();
+        	error = streamReader.ReadToEnd();
         	if (!string.IsNullOrEmpty(error))
         	    throw new Exception(error);
         }

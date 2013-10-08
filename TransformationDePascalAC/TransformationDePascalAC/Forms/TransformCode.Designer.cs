@@ -76,7 +76,6 @@ namespace TransformationDePascalAC.Forms
         	this.txtPascal.ReadOnly = true;
         	this.txtPascal.Size = new System.Drawing.Size(298, 20);
         	this.txtPascal.TabIndex = 3;
-        	this.txtPascal.Text = "E:\\SVN_USI_ECO\\TransformationDePascalAC\\project - Copy (file for test)\\Pascal";
         	// 
         	// btnSelezionaP
         	// 
@@ -95,7 +94,6 @@ namespace TransformationDePascalAC.Forms
         	this.txtCSharp.ReadOnly = true;
         	this.txtCSharp.Size = new System.Drawing.Size(298, 20);
         	this.txtCSharp.TabIndex = 5;
-        	this.txtCSharp.Text = "E:\\SVN_USI_ECO\\TransformationDePascalAC\\project - Copy (file for test)\\C#";
         	// 
         	// btnSelezionaC
         	// 

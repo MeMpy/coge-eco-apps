@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controller\EnsembleCodeGeneratorController.cs" />
+    <Compile Include="Controller\InvokeEcoSnip.cs" />
     <Compile Include="Forms\DefBDD2Form.cs">
       <SubType>Form</SubType>
     </Compile>

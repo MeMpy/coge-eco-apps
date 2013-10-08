@@ -1,6 +1,7 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+# SharpDevelop 4.3
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TransformationDePascalAC", "TransformationDePascalAC\TransformationDePascalAC.csproj", "{AF03B209-D2CD-4F01-9B69-4F7DFF6C9461}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTransformation", "CodeTransformation\CodeTransformation.csproj", "{51023130-1FC7-4B16-880F-433DE35660D6}"

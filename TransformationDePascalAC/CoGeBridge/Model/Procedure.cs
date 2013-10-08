@@ -7,7 +7,6 @@ using System.Xml;
 using System.Xml.Linq;
 
 
-//TODO Togliere di mezzo e spostare procedure in CoGeBridge
 namespace CoGeBridge.Model
 {
     public class Procedure

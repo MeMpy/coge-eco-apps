@@ -35,8 +35,18 @@ namespace TransformationDePascalAC.Forms
 			{
 				txtScript.Text = openFileDialog1.FileName;
 				
-				List<Procedure> procs = controller.BuildProceduresFromScript(txtScript.Text);
-				procedureBindingSource.DataSource = procs;
+				try 
+				{
+					List<Procedure> procs = controller.BuildProceduresFromScript(txtScript.Text);
+					procedureBindingSource.DataSource = procs;
+					
+				} catch (Exception ex) {
+					
+					MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					
+				}
+				
+				
 
 			}
 
